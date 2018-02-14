@@ -1,8 +1,6 @@
 #include <Servo.h>
 #include <math.h>
 
-#define PI 3.14159
-
 Servo servo2,servo3,servo4,servo5,servo6,servo7,servo8;
 
 int counter = 0;
