@@ -67,7 +67,7 @@ void loop() {
   int A5_val = analogRead(A5); 
   int A6_val = analogRead(A6);  
   int A7_val = analogRead(A7);
-  
+  //Instead of numbering as l0 to l9 and f0 to f9, we are now using f,b,l,r initially
   int A6_scale_value = (int)(((float)A6_val)/(1023)*9);
   int A7_scale_value = (int)(((float)A7_val)/(1023)*9);
   
