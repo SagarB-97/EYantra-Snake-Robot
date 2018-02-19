@@ -11,6 +11,7 @@
 int A1_state = OFF_STATE;
 int A2_state = OFF_STATE;
 int A0_state = OFF_STATE;
+int A3_state = OFF_STATE;
 
 RF24 radio(7, 8);
 const byte address[6] = "00001";
@@ -40,6 +41,7 @@ void loop() {
   int A2_val = analogRead(A2);
   int A1_val = analogRead(A1);
   int A0_val = analogRead(A0);
+  int A3_val = analogRead(A3);
 
 
   /*Serial.print("A1 = ");
@@ -53,7 +55,7 @@ void loop() {
 
   if(A1_state==OFF_STATE && A1_val>ON_ANALOG) A1_state = ON_STATE;
   if(A1_state==ON_STATE && A1_val<OFF_ANALOG){
-    printAndSend("cs");
+    printAndSend("nm");
     A1_state=OFF_STATE;
   }
 
@@ -61,6 +63,12 @@ void loop() {
   if(A2_state==ON_STATE && A2_val<OFF_ANALOG){
     printAndSend("st");
     A2_state=OFF_STATE;
+  }
+
+  if(A3_state==OFF_STATE && A3_val>ON_ANALOG) A3_state = ON_STATE;
+  if(A3_state==ON_STATE && A3_val<OFF_ANALOG){
+    printAndSend("cs");
+    A3_state=OFF_STATE;
   }
   
   // Joystick
