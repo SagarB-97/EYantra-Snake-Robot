@@ -7,8 +7,8 @@ Servo servo2,servo3,servo4,servo5,servo6,servo7,servo8;
 
 int counter = 0;
 
-float frequency1 = 1;
-float frequency2 = 2;
+float frequency1 = 3;
+float frequency2 = 1;
 
 float lag1 = 240*PI/180;
 float lag2 = 180*PI/180;
