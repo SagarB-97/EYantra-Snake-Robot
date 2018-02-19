@@ -81,7 +81,7 @@ void forward(){
 void backward(){
 }
 
-void leftReset(){
+void turnReset(){
   turnParams.counter = 0;
   turnParams.frequency1 = 2;
   turnParams.frequency2 = 2;
@@ -89,27 +89,19 @@ void leftReset(){
   turnParams.lag2 = 180*PI/180;
   turnParams.a = 130;
   turnParams.b = 2*PI;
-  turnParams.c = 10;
   turnParams.n = 3;
   turnParams.beta = turnParams.b/turnParams.n;
   turnParams.alpha = abs(turnParams.a*sin(turnParams.beta/2));
   turnParams.gamma = -turnParams.c/turnParams.n;
   turnParams.amplitude_h = 10;
 }
+void leftReset(){
+  turnReset();
+  turnParams.c = 10;
+}
 void rightReset(){
-  turnParams.counter = 0;
-  turnParams.frequency1 = 2;
-  turnParams.frequency2 = 2;
-  turnParams.lag1 = 240*PI/180;
-  turnParams.lag2 = 180*PI/180;
-  turnParams.a = 130;
-  turnParams.b = 2*PI;
+  turnReset();
   turnParams.c = -10;
-  turnParams.n = 3;
-  turnParams.beta = turnParams.b/turnParams.n;
-  turnParams.alpha = abs(turnParams.a*sin(turnParams.beta/2));
-  turnParams.gamma = -turnParams.c/turnParams.n;
-  turnParams.amplitude_h = 10;
 }
 
 void turn(){
