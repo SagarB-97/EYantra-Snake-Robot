@@ -13,6 +13,9 @@ int A2_state = OFF_STATE;
 int A0_state = OFF_STATE;
 int A3_state = OFF_STATE;
 
+long prevTime=0, curTime=0;
+int stButtonCount = 0;
+
 RF24 radio(7, 8);
 const byte address[6] = "00001";
 
@@ -32,11 +35,12 @@ void setup() {
 }
 
 void printAndSend(const char str[]){
-    radio.write(str, 3);
-    Serial.println(str);
+  radio.write(str, 3);
+  Serial.println(str);
 }
 
 void loop() {
+  curTime = millis();
   // Push Buttons
   int A2_val = analogRead(A2);
   int A1_val = analogRead(A1);
@@ -61,47 +65,44 @@ void loop() {
 
   if(A2_state==OFF_STATE && A2_val>ON_ANALOG) A2_state = ON_STATE;
   if(A2_state==ON_STATE && A2_val<OFF_ANALOG){
-    printAndSend("st");
+    if(stButtonCount==0) { prevTime = millis(); }
+    stButtonCount++;
     A2_state=OFF_STATE;
+  }
+
+  if(curTime-prevTime >=3000){
+    if(stButtonCount && stButtonCount>=3){
+      printAndSend("so");
+    }
+    else if(stButtonCount && stButtonCount<3){
+      printAndSend("st");
+    }
+    stButtonCount = 0;
+    prevTime = curTime;
   }
 
   if(A3_state==OFF_STATE && A3_val>ON_ANALOG) A3_state = ON_STATE;
   if(A3_state==ON_STATE && A3_val<OFF_ANALOG){
     printAndSend("cs");
     A3_state=OFF_STATE;
+    delay(100);
   }
   
   // Joystick
-  int A5_val = analogRead(A5); 
-  int A6_val = analogRead(A6);  
-  int A7_val = analogRead(A7);
-  //Instead of numbering as l0 to l9 and f0 to f9, we are now using f,b,l,r initially
-  int A6_scale_value = (int)(((float)A6_val)/(1023)*9);
-  int A7_scale_value = (int)(((float)A7_val)/(1023)*9);
-  
-  if(A6_scale_value>=6){
-    char str[3] = "f";
-    //str[1] = A6_scale_value;
-    printAndSend(str);
-  }
+  int A6_val = analogRead(A6); //y-axis
+  int A7_val = analogRead(A7); //x-axis
 
-  if(A6_scale_value<=3){
-   char str[3] = "b";
-    //str[1] = A6_scale_value;
-    printAndSend(str); 
-  }
+   // Serial.println(A6_val);
+   // Serial.println(A7_val);
+  if(A6_val<200 && (A7_val>300 || A7_val<700))
+    printAndSend("b");
+  else if(A6_val >800 && (A7_val>300 || A7_val<700))
+          printAndSend("f");
 
-  if(A7_scale_value>=6){
-    char str[3] = "l";
-    //str[1] = A7_scale_value;
-    printAndSend(str);
-  }
-  
-  if(A7_scale_value<=3){
-   char str[3] = "r";
-    //str[1] = A6_scale_value;
-    printAndSend(str); 
-  }  
+   if(A7_val<150 && (A6_val>300 || A6_val<700))
+       printAndSend("r");
+   else if(A7_val >800 && (A6_val>300 || A6_val<700))
+          printAndSend("l");
   
 }
 

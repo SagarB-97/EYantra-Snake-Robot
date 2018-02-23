@@ -108,7 +108,7 @@ void turnReset(){
   turnParams.counter = 0;
   turnParams.frequency1 = 2;
   turnParams.frequency2 = 2;
-  turnParams.a = 130;
+  turnParams.a = 80;
   turnParams.b = 2*PI;
   turnParams.c = 0;
   turnParams.n = 3;
@@ -117,7 +117,7 @@ void turnReset(){
   turnParams.beta = turnParams.b/turnParams.n;
   turnParams.alpha = abs(turnParams.a*sin(turnParams.beta/2));
   turnParams.gamma = -turnParams.c/turnParams.n;
-  turnParams.amplitude_h = 20;
+  turnParams.amplitude_h = 30;
 }
 void leftReset(){
   turnReset();
@@ -238,6 +238,15 @@ void loop() {
     else if(strcmp(inp,"gt")==0){
       equilibrium();
       state = 's';
+    }
+    else if(strcmp(inp,"cs")==0) {
+      Serial.println('x');
+    }
+    else if(strcmp(inp,"st")==0) {
+      Serial.println('y');
+    }
+    else if(strcmp(inp,"so")==0) {
+      Serial.println('z');
     }
   }
 
