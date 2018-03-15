@@ -40,7 +40,6 @@ void setup() {
   servo8.attach(8);
 
   equilibrium();
-  headTurnParams.motor = 5;
 }
 
 void loop() {
