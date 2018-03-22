@@ -83,7 +83,7 @@ void forward(){
   int pos8_val = pos8_init - floor(forwardParams.amplitude_h*cos(forwardParams.frequency*forwardParams.counter*PI/180 - 3*forwardParams.lag));
   servo8.write(pos8_val);
 
-  forwardParams.counter = (forwardParams.counter+6)%360;
+  forwardParams.counter = (forwardParams.counter+8)%360;
   delay(100);
 }
 
