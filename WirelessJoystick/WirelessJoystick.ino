@@ -1,7 +1,7 @@
 /*
  * Team Id: SS#2364
  * Author List: Samarth Bonthala, Sagar Bharadwaj, Nagarakshith M S, Prajwal Bharadwaj
- * Filename: Wireless_Joystick.ino
+ * Filename: WirelessJoystick.ino
  * Theme: eYRC 2017 Spotter Snake
  * Functions: setup(), printAndSend(const char str[]), loop()
  * Global Variables: A0_state, A1_state, A2_state, A3_state, stMarkTime, curTime, gtMarkTime, stButtonCount, gtButtonCount, address[6]

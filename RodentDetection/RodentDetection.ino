@@ -1,22 +1,15 @@
-/*     Arduino Color Sensing Tutorial
- *      
- *  by Dejan Nedelkovski, www.HowToMechatronics.com
- *  
- */
-// pin 9 for red light and 10 for blue light
+/*
+ * Team Id: SS#2364
+ * Author List: Sagar Bharadwaj, Nagarakshith M S, Samarth Bonthala, Prajwal Bharadwaj
+ * Filename: RodentDetection.ino
+ * Theme: eYRC 2017 Spotter Snake
+*/
+
 #include <Servo.h>
 Servo myservo;  // create servo object to control a servo
 
 #define BLUE_CONDITION (frequency_r >= 77 && frequency_r <= 113) && (frequency_b >= 75 && frequency_b <= 89) && (frequency_g >= 98 && frequency_g <= 125)
-
-
 #define RED_CONDITION (frequency_r >= 85 && frequency_r <= 101) && (frequency_b >= 116 && frequency_b <= 139) && (frequency_g >= 135 && frequency_g <= 172)
-
-
-
-
-
-
 
 #define S0 4
 #define S1 5

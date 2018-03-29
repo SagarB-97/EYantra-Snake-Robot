@@ -1,7 +1,7 @@
 /*
  * Team Id: SS#2364
  * Author List: Sagar Bharadwaj, Nagarakshith M S, Samarth Bonthala, Prajwal Bharadwaj
- * Filename: Receiver_Snake_body.ino
+ * Filename: ReceiverSnakeBody.ino
  * Theme: eYRC 2017 Spotter Snake
  * Functions: setup(), equilibrium(), loop()
  * Global Variables: address[6]
