@@ -55,7 +55,7 @@ void sideWindingReset(){
   sideWindingParams.maxNegCycles_l = 1;
 
   
-  sideWindingParams.maxNormalCycles_r =3;
+  sideWindingParams.maxNormalCycles_r = 4;
   sideWindingParams.maxNegCycles_r = 1;
 }
 

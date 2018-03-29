@@ -34,7 +34,7 @@ int gtButtonCount = 0;
 
 RF24 radio(7, 8);
 // address[6]: Assigns a particular/unique address to decide transmission link and avoid collisions in RF. Array of size 6 with initial index 0 to (length-1).
-const byte address[6] = "00001";
+const byte address[6] = "00111";
 
 /*
  * Function Name: setup
