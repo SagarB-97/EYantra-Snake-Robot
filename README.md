@@ -1,12 +1,14 @@
 # Snake-Robot
 
-## Video
+## Videos
 
 Video of the working Snake robot demonstrated in E-Yantra national finals in IIT Bombay :
 
-[E-Yantra National Finals 2018](https://www.youtube.com/watch?v=MwMsUCSI5WU)
+[E-Yantra National Finals 2018](https://www.youtube.com/watch?v=UX1V8pezbfs)
 
 Our robot was declared the winner in the `Spotter Snake` theme.
+
+[Post-competition video](https://www.youtube.com/watch?v=73d9S3kG9hY) demonstarting snake's features
 
 
 ## E-Yantra
